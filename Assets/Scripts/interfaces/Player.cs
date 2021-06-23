@@ -1,7 +1,11 @@
 using System.Collections.Generic;
 public class Player : Entity
 {
-    List items;
+    //List items;
 
-    int health;
+    int hp;
+
+    public int health() {
+        return this.hp;
+    }
 }
