@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Player player;
+    public Camera cameraRef;
 
     // Start is called before the first frame update
     void Start()
@@ -18,5 +19,9 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         this.player.move(horizontal, vertical);
+        if (Input.GetMouseButton(0)) {
+            Vector3 mousePos = Input.mousePosition;
+            player.shoot(cameraRef.ScreenToWorldPoint(mousePos) - player.transform.position);
+        }
     }
 }
