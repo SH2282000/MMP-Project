@@ -28,12 +28,18 @@ public class Base_Bullet : MonoBehaviour
 
     public void setMotion(Vector2 motion) {
         motion = motion.normalized;
-        motion = new Vector2(motion.x * 50, motion.y * 50);
+        motion = new Vector2(motion.x * 100, motion.y * 100);
         this.motion = motion;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(this.self);
+        Debug.Log("collision");
+
+        if (collision.gameObject.tag == "RedWalls")
+        {
+            Debug.Log("touch red walls");
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        } else Destroy(this.self);
     }
 }

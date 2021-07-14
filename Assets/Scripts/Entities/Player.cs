@@ -9,6 +9,7 @@ public class Player : MonoBehaviour, Entity
     private bool faceRight = true;
     private int hp = 3;
     private float cooldown;
+    private bool attacking = false;
 
     public Base_Bullet base_bullet;
 
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour, Entity
             scale.x *= -1;
             this.transform.localScale = scale;
         }
-        Debug.Log(this.collision.velocity);
+        //Debug.Log(this.collision.velocity);
     }
 
     public void shoot(Vector3 dir) {
@@ -50,9 +51,17 @@ public class Player : MonoBehaviour, Entity
         }
     }
 
+    public void attack()
+    {
+        this.attacking = true;
+        this.animator.SetBool("Attacking", true);
+    }
+
     public void takeDamage() {
         this.hp--;
         if(this.hp <= 0) {
+            this.animator.SetBool("Alive", false);
+
             //Game Over
         }
     }
