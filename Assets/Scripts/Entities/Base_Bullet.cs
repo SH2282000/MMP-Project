@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Enemy;
 
 public class Base_Bullet : MonoBehaviour
 {
@@ -34,11 +35,8 @@ public class Base_Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collision");
-
         if (collision.gameObject.tag == "RedWalls")
         {
-            Debug.Log("touch red walls");
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         } else Destroy(this.self);
     }
