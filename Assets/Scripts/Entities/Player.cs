@@ -45,7 +45,7 @@ public class Player : MonoBehaviour, Entity
             bullet.tag = "Bullet";
             Vector2 dir2 = new Vector2(dir.x, dir.y);
             bullet.setMotion(dir2);
-            bullet.transform.position = new Vector3(this.transform.position.x + bullet.motion.x * 0.6f, this.transform.position.y + bullet.motion.y * 0.6f, -5);
+            bullet.transform.position = new Vector3(this.transform.position.x + bullet.motion.x * 0.1f, this.transform.position.y + bullet.motion.y * 0.1f, -5);
             Destroy(bullet.self, 5);
             this.cooldown = 1;
         }
@@ -69,5 +69,12 @@ public class Player : MonoBehaviour, Entity
 
     void Update() {
         this.cooldown -= Time.deltaTime;    
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            this.takeDamage();
+        }
     }
 }
