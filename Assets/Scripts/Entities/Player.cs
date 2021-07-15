@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System;
+using System.Threading;
 using UnityEngine;
 public class Player : MonoBehaviour, Entity
 {
@@ -9,11 +11,17 @@ public class Player : MonoBehaviour, Entity
     private bool faceRight = true;
     private int hp = 3;
     private float cooldown;
+    private float cooldown, invulnerableTime;
     private bool attacking = false;
     public Base_Bullet base_bullet;
     //private AudioSource getshotAudio;
     public AudioSource playerHurtSound;
     public AudioSource playerShootSound;
+
+    public GameObject self;
+
+    public GameObject[] hearts;
+    public GameObject gameOver;
 
     void Awake() {
         this.collision = GetComponent<Rigidbody2D>();
@@ -50,6 +58,7 @@ public class Player : MonoBehaviour, Entity
             Vector2 dir2 = new Vector2(dir.x, dir.y);
             bullet.setMotion(dir2);
             bullet.transform.position = new Vector3(this.transform.position.x + bullet.motion.x * 0.1f, this.transform.position.y + bullet.motion.y * 0.1f, -5);
+            bullet.transform.position = new Vector3(this.transform.position.x + bullet.motion.x * 0.1f, this.transform.position.y + bullet.motion.y * 0.1f, this.transform.position.z);
             Destroy(bullet.self, 5);
             this.cooldown = 1;
             playerShootSound.Play();
@@ -60,14 +69,23 @@ public class Player : MonoBehaviour, Entity
     {
         this.attacking = true;
         this.animator.SetBool("Attacking", true);
+        this.animator.SetTrigger("Attacking");
     }
 
     public void takeDamage() {
+        if(this.hp <= 0 || this.invulnerableTime > 0)
+            return;
+        Debug.Log("Damage player");
         this.hp--;
+<<<<<<< HEAD
 
         // Audio if player gets shot
         playerHurtSound.Play();
 
+=======
+        this.hearts[this.hp].SetActive(false);
+        this.invulnerableTime = 1;
+>>>>>>> 536a3ea782d5fbb17b82b25baceedaf968934b25
         if(this.hp <= 0) {
             this.animator.SetBool("Alive", false);
             //Destroy(this.self);
@@ -78,7 +96,15 @@ public class Player : MonoBehaviour, Entity
 
     void Update() {
         this.cooldown -= Time.deltaTime;    
+        this.cooldown -= Time.deltaTime;  
+        this.invulnerableTime -= Time.deltaTime;  
+        AnimatorStateInfo anim = this.animator.GetCurrentAnimatorStateInfo(0);
+        if(anim.IsName("dead") && anim.normalizedTime > 1) {
+            Destroy(this.self);
+            this.gameOver.SetActive(true);
+        }
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
