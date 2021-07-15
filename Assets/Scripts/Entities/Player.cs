@@ -11,9 +11,11 @@ public class Player : MonoBehaviour, Entity
     private float cooldown;
     private bool attacking = false;
     public Base_Bullet base_bullet;
+    private AudioSource getshotAudio;
 
     void Awake() {
         this.collision = GetComponent<Rigidbody2D>();
+        this.getshotAudio = GetComponent<AudioSource>();
     }
 
     public int health() {
@@ -42,6 +44,7 @@ public class Player : MonoBehaviour, Entity
     public void shoot(Vector3 dir) {
         if(this.cooldown <= 0) {
             Base_Bullet bullet = Instantiate(base_bullet);
+            getshotAudio.Play();
             bullet.tag = "Bullet";
             Vector2 dir2 = new Vector2(dir.x, dir.y);
             bullet.setMotion(dir2);
@@ -59,6 +62,10 @@ public class Player : MonoBehaviour, Entity
 
     public void takeDamage() {
         this.hp--;
+
+        // Audio if player gets shot
+        getshotAudio.Play();
+
         if(this.hp <= 0) {
             this.animator.SetBool("Alive", false);
             //Destroy(this.self);
