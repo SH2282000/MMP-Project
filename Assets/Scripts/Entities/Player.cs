@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System;
 using System.Threading;
 using UnityEngine;
@@ -10,7 +9,6 @@ public class Player : MonoBehaviour, Entity
     public Animator animator;
     private bool faceRight = true;
     private int hp = 3;
-    private float cooldown;
     private float cooldown, invulnerableTime;
     private bool attacking = false;
     public Base_Bullet base_bullet;
@@ -57,7 +55,6 @@ public class Player : MonoBehaviour, Entity
             bullet.tag = "Bullet";
             Vector2 dir2 = new Vector2(dir.x, dir.y);
             bullet.setMotion(dir2);
-            bullet.transform.position = new Vector3(this.transform.position.x + bullet.motion.x * 0.1f, this.transform.position.y + bullet.motion.y * 0.1f, -5);
             bullet.transform.position = new Vector3(this.transform.position.x + bullet.motion.x * 0.1f, this.transform.position.y + bullet.motion.y * 0.1f, this.transform.position.z);
             Destroy(bullet.self, 5);
             this.cooldown = 1;
@@ -68,7 +65,6 @@ public class Player : MonoBehaviour, Entity
     public void attack()
     {
         this.attacking = true;
-        this.animator.SetBool("Attacking", true);
         this.animator.SetTrigger("Attacking");
     }
 
@@ -77,25 +73,15 @@ public class Player : MonoBehaviour, Entity
             return;
         Debug.Log("Damage player");
         this.hp--;
-<<<<<<< HEAD
-
-        // Audio if player gets shot
-        playerHurtSound.Play();
-
-=======
         this.hearts[this.hp].SetActive(false);
         this.invulnerableTime = 1;
->>>>>>> 536a3ea782d5fbb17b82b25baceedaf968934b25
+        playerHurtSound.Play();
         if(this.hp <= 0) {
             this.animator.SetBool("Alive", false);
-            //Destroy(this.self);
-
-            //Game Over
         }
     }
 
     void Update() {
-        this.cooldown -= Time.deltaTime;    
         this.cooldown -= Time.deltaTime;  
         this.invulnerableTime -= Time.deltaTime;  
         AnimatorStateInfo anim = this.animator.GetCurrentAnimatorStateInfo(0);
