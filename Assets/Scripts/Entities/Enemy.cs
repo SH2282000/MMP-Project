@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour, Entity
     private int hp = 2;
     private float cooldown;
     private bool attacking = false;
-    public Base_Bullet base_bullet;
+    public GameObject self;
 
     void Awake()
     {
@@ -45,24 +45,10 @@ public class Enemy : MonoBehaviour, Entity
         //Debug.Log(this.collision.velocity);
     }
 
-    public void shoot(Vector3 dir)
-    {
-        if (this.cooldown <= 0)
-        {
-            Base_Bullet bullet = Instantiate(base_bullet);
-            bullet.tag = "Bullet";
-            Vector2 dir2 = new Vector2(dir.x, dir.y);
-            bullet.setMotion(dir2);
-            bullet.transform.position = new Vector3(this.transform.position.x + bullet.motion.x * 0.6f, this.transform.position.y + bullet.motion.y * 0.6f, -5);
-            Destroy(bullet.self, 5);
-            this.cooldown = 1;
-        }
-    }
-
     public void attack()
     {
         this.attacking = true;
-        this.animator.SetBool("Attacking", true);
+        this.animator.SetTrigger("Attacking");
     }
 
     public void takeDamage()
@@ -71,8 +57,6 @@ public class Enemy : MonoBehaviour, Entity
         if (this.hp <= 0)
         {
             this.animator.SetBool("Alive", false);
-            //Destroy(this.collision);
-            Destroy(this);
         }
     }
 
@@ -82,11 +66,18 @@ public class Enemy : MonoBehaviour, Entity
         {
             Debug.Log("enemy touched");
             this.takeDamage();
-        }   
+        }
+        if (collision.gameObject.tag == "Player")
+        {
+            this.attack();
+        }
     }
 
-void Update()
+    void Update()
     {
         this.cooldown -= Time.deltaTime;
+        AnimatorStateInfo anim = this.animator.GetCurrentAnimatorStateInfo(0);
+        if(anim.IsName("dead") && anim.normalizedTime > 1)
+            Destroy(this.self);
     }
 }
