@@ -10,8 +10,7 @@ public class Enemy : MonoBehaviour, Entity
     private int hp = 2;
     private float cooldown;
     private bool attacking = false;
-    public GameObject self;
-
+    
     void Awake()
     {
         this.collision = GetComponent<Rigidbody2D>();
@@ -78,6 +77,6 @@ public class Enemy : MonoBehaviour, Entity
         this.cooldown -= Time.deltaTime;
         AnimatorStateInfo anim = this.animator.GetCurrentAnimatorStateInfo(0);
         if(anim.IsName("dead") && anim.normalizedTime > 1)
-            Destroy(this.self);
+            Destroy(this.gameObject);
     }
 }

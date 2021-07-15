@@ -10,8 +10,6 @@ public class Base_Bullet : MonoBehaviour
     public Vector2 motion;
     public int livingTimeMax = 5;
 
-    public GameObject self;
-
     void Start()
     {
         
@@ -35,9 +33,9 @@ public class Base_Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "RedWalls" || collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "RedWalls" || collision.gameObject.tag == "Player" || collision.gameObject.tag == "Bullet")
         {
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        } else Destroy(this.self);
+        } else Destroy(this.gameObject);
     }
 }

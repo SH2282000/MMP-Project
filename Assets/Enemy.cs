@@ -54,7 +54,7 @@ public class Ennemy : MonoBehaviour, Entity
             Vector2 dir2 = new Vector2(dir.x, dir.y);
             bullet.setMotion(dir2);
             bullet.transform.position = new Vector3(this.transform.position.x + bullet.motion.x * 0.6f, this.transform.position.y + bullet.motion.y * 0.6f, -5);
-            Destroy(bullet.self, 5);
+            Destroy(bullet.gameObject, 5);
             this.cooldown = 1;
         }
     }
