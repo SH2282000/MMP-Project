@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
 
-    public float timeValue = 60;
+    public float timeValue = 90;
     public Text timeText;
     public GameObject gameOver;
 
@@ -18,7 +18,8 @@ public class Timer : MonoBehaviour
         {
             timeValue -= Time.deltaTime;
         }
-        else {
+        else
+        {
             timeValue = 0;
             this.gameOver.SetActive(true);
             print("No time left");
@@ -27,8 +28,10 @@ public class Timer : MonoBehaviour
         DisplayTime(timeValue);
     }
 
-    void DisplayTime(float timeToDisplay) {
-        if (timeToDisplay < 0) {
+    void DisplayTime(float timeToDisplay)
+    {
+        if (timeToDisplay < 0)
+        {
             timeToDisplay = 0;
         }
 

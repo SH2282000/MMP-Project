@@ -20,15 +20,16 @@ public class Points : MonoBehaviour
         pointStatus = enemy.killCount;
     }
 
-    // Update is called once per frame
     void Update()
     {
         pointStatus = enemy.killCount * killFactor;
         DisplayPoints(pointStatus);
     }
 
-    void DisplayPoints(float currPoints) {
-        if (currPoints < 0) {
+    void DisplayPoints(float currPoints)
+    {
+        if (currPoints < 0)
+        {
             currPoints = 0;
         }
 

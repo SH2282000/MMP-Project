@@ -5,27 +5,22 @@ using static Enemy;
 
 public class Base_Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
     private Rigidbody2D collision;
     public Vector2 motion;
     public int livingTimeMax = 5;
 
-    void Start()
+    void Awake()
     {
-        
-    }
-
-    void Awake() {
         this.collision = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         this.collision.velocity = this.motion;
     }
 
-    public void setMotion(Vector2 motion) {
+    public void setMotion(Vector2 motion)
+    {
         motion = motion.normalized;
         motion = new Vector2(motion.x * 100, motion.y * 100);
         this.motion = motion;
@@ -36,6 +31,7 @@ public class Base_Bullet : MonoBehaviour
         if (collision.gameObject.tag == "RedWalls" || collision.gameObject.tag == "Player" || collision.gameObject.tag == "Bullet")
         {
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        } else Destroy(this.gameObject);
+        }
+        else Destroy(this.gameObject);
     }
 }

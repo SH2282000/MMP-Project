@@ -11,10 +11,11 @@ public class Enemy : MonoBehaviour, Entity
     private float cooldown;
     private bool attacking = false;
     public float killCount = 0;
-    
+
     public AudioSource enemyDiesSound;
     public AudioSource enemyShootSound;
     public AudioSource enemyHitSound;
+
     void Awake()
     {
         this.collision = GetComponent<Rigidbody2D>();
@@ -35,12 +36,12 @@ public class Enemy : MonoBehaviour, Entity
     public void takeDamage()
     {
         this.hp--;
-        enemyHitSound.Play();
+        this.enemyHitSound.Play();
         if (this.hp <= 0)
         {
             this.animator.SetBool("Alive", false);
-            killCount++;
-            enemyDiesSound.Play();
+            this.killCount++;
+            this.enemyDiesSound.Play();
         }
     }
 
@@ -61,7 +62,7 @@ public class Enemy : MonoBehaviour, Entity
     {
         this.cooldown -= Time.deltaTime;
         AnimatorStateInfo anim = this.animator.GetCurrentAnimatorStateInfo(0);
-        if(anim.IsName("dead") && anim.normalizedTime > 1)
+        if (anim.IsName("dead") && anim.normalizedTime > 1)
             Destroy(this.gameObject);
     }
 }
