@@ -21,29 +21,6 @@ public class Enemy : MonoBehaviour, Entity
         return this.hp;
     }
 
-    public void move(float horizontal, float vertical)
-    {
-        horizontal *= 100f;
-        vertical *= 100f;
-        this.animator.SetBool("Moving", horizontal != 0 || vertical != 0);
-        this.collision.velocity = new Vector2(horizontal, vertical);
-        if (horizontal > 0 && !this.faceRight)
-        {
-            this.faceRight = true;
-            Vector3 scale = this.transform.localScale;
-            scale.x *= -1;
-            this.transform.localScale = scale;
-        }
-        else if (horizontal < 0 && this.faceRight)
-        {
-            this.faceRight = false;
-            Vector3 scale = this.transform.localScale;
-            scale.x *= -1;
-            this.transform.localScale = scale;
-        }
-        //Debug.Log(this.collision.velocity);
-    }
-
     public void attack()
     {
         this.attacking = true;

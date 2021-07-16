@@ -29,6 +29,8 @@ public class Player : MonoBehaviour, Entity
     }
 
     public void move(float horizontal, float vertical) {
+        if(this.health() <= 0)
+            return;
         horizontal *= 100f;
         vertical *= 100f;
         if(this.speedTime > 0) {
