@@ -10,7 +10,9 @@ public class Enemy : MonoBehaviour, Entity
     private int hp = 2;
     private float cooldown;
     private bool attacking = false;
-    
+    public AudioSource enemyDiesSound;
+    public AudioSource enemyShootSound;
+    public AudioSource enemyHitSound;
     void Awake()
     {
         this.collision = GetComponent<Rigidbody2D>();
@@ -25,14 +27,17 @@ public class Enemy : MonoBehaviour, Entity
     {
         this.attacking = true;
         this.animator.SetTrigger("Attacking");
+        enemyShootSound.Play();
     }
 
     public void takeDamage()
     {
         this.hp--;
+        enemyHitSound.Play();
         if (this.hp <= 0)
         {
             this.animator.SetBool("Alive", false);
+            enemyDiesSound.Play();
         }
     }
 
