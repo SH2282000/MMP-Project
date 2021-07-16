@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour, Entity
     private int hp = 2;
     private float cooldown;
     private bool attacking = false;
+    public float killCount = 0;
     
     void Awake()
     {
@@ -33,6 +34,7 @@ public class Enemy : MonoBehaviour, Entity
         if (this.hp <= 0)
         {
             this.animator.SetBool("Alive", false);
+            killCount++;
         }
     }
 
