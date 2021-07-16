@@ -15,7 +15,7 @@ public class Player : MonoBehaviour, Entity
     //private AudioSource getshotAudio;
     public AudioSource playerHurtSound;
     public AudioSource playerShootSound;
-
+    public AudioSource playerDiesSound;
     public GameObject[] hearts;
     public GameObject gameOver, speedObj, powerObj;
 
@@ -81,6 +81,7 @@ public class Player : MonoBehaviour, Entity
         playerHurtSound.Play();
         if(this.hp <= 0) {
             this.animator.SetBool("Alive", false);
+            playerDiesSound.Play();
         }
     }
 
