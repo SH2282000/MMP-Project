@@ -1,5 +1,4 @@
 using System;
-using System.Threading;
 using UnityEngine;
 public class Player : MonoBehaviour, Entity
 {
@@ -55,11 +54,12 @@ public class Player : MonoBehaviour, Entity
             scale.x *= -1;
             this.transform.localScale = scale;
         }
-        //Debug.Log(this.collision.velocity);
     }
 
     public void shoot(Vector3 dir)
     {
+        if (this.health() <= 0)
+            return;
         if (this.cooldown <= 0)
         {
             Base_Bullet bullet = Instantiate(base_bullet);
@@ -117,7 +117,7 @@ public class Player : MonoBehaviour, Entity
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && collision.gameObject.GetComponent<Enemy>().health() > 0)
         {
             this.takeDamage();
         }

@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
 
     public float timeValue = 90;
     public Text timeText;
-    public GameObject gameOver;
+    public GameObject gameOver, player;
 
     // Update is called once per frame
     void Update()
@@ -22,6 +22,7 @@ public class Timer : MonoBehaviour
         {
             timeValue = 0;
             this.gameOver.SetActive(true);
+            Destroy(this.player);
             print("No time left");
         }
 

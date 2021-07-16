@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class PlayerTarget : MonoBehaviour
 {
-    GameObject target;
+    Player target;
     IAstarAI ai;
     Enemy data;
 
@@ -14,7 +14,7 @@ public class PlayerTarget : MonoBehaviour
         ai = GetComponent<IAstarAI>();
         data = GetComponent<Enemy>();
         if (ai != null) ai.onSearchPath += Update;
-        target = GameObject.Find("Player");
+        target = GameObject.Find("Player").GetComponent<Player>();
     }
 
     void OnDisable()
@@ -24,7 +24,7 @@ public class PlayerTarget : MonoBehaviour
 
     void Update()
     {
-        if (data.health() <= 0)
+        if (data.health() <= 0 || target.health()<=0)
         {
             ai.canMove = false;
             return;

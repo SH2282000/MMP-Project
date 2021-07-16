@@ -572,6 +572,8 @@ MonoBehaviour:
   enemyDiesSound: {fileID: 8563158922209405750}
   enemyShootSound: {fileID: 90067984259329788}
   enemyHitSound: {fileID: 3054075979255439122}
+  levelHandler: {fileID: 0}
+  path: {fileID: -7437529761118454354}
 --- !u!50 &1517623073896657904
 Rigidbody2D:
   serializedVersion: 4
@@ -655,7 +657,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 100
+  maxSpeed: 90
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

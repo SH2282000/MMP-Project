@@ -1,4 +1,4 @@
-using System.Threading;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelHandler : MonoBehaviour
@@ -15,10 +15,23 @@ public class LevelHandler : MonoBehaviour
 
     private int spawnedEnemies;
 
+    private List<Enemy> enemies = new List<Enemy>(), toRemove = new List<Enemy>();
+
+    public Player player;
+
+    public void remove(Enemy enemy) {
+        this.toRemove.Add(enemy);
+    }
     // Update is called once per frame
     void Update()
     {
-        if (this.delay > 0)
+        foreach (Enemy e in this.toRemove) {
+            this.enemies.Remove(e);
+        }
+        this.toRemove.Clear();
+        if(this.player.health() <= 0 || this.enemies.Count > 5)
+            return;
+        if (this.delay > 0 && this.enemies.Count != 0)
         {
             this.delay -= Time.deltaTime;
         }
@@ -36,11 +49,12 @@ public class LevelHandler : MonoBehaviour
                     enemy = Instantiate(bot);
                 else
                     enemy = Instantiate(muddy);
-
+                enemy.levelHandler = this;
                 enemy.transform.position = new Vector3(location.transform.position.x + Random.Range(-2.1f, 2.1f), location.transform.position.y + Random.Range(-2.1f, 2.1f), location.transform.position.z);
                 this.spawnedEnemies++;
+                this.enemies.Add(enemy);
             }
-            this.delay = Random.Range(10, 25);
+            this.delay = Random.Range(5, 10);
 
         }
         if (this.powerUpDelay > 0)

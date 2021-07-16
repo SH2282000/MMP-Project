@@ -1058,6 +1058,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &566865660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 566865662}
+  - component: {fileID: 566865661}
+  m_Layer: 0
+  m_Name: PointsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &566865661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566865660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52def44417ba4ef5929cbd18229d6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointStatus: 0
+  pointsText: {fileID: 824188714}
+--- !u!4 &566865662
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566865660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 437.85522, y: 498.62952, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &585813175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,7 +1553,6 @@ GameObject:
   - component: {fileID: 824188712}
   - component: {fileID: 824188715}
   - component: {fileID: 824188714}
-  - component: {fileID: 824188713}
   m_Layer: 5
   m_Name: Points
   m_TagString: Untagged
@@ -1535,20 +1579,6 @@ RectTransform:
   m_AnchoredPosition: {x: 126.52, y: 214.2}
   m_SizeDelta: {x: 160, y: 32.7194}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &824188713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 824188711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52def44417ba4ef5929cbd18229d6ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointStatus: 0
-  pointsText: {fileID: 824188714}
 --- !u!114 &824188714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1735,6 +1765,7 @@ MonoBehaviour:
   muddy: {fileID: 4987394426515883236, guid: 15ca3dd2173290ae9a15ff37d8d98fb4, type: 3}
   power: {fileID: 3078002579963490201, guid: 8b7964405e40d1b7fb3cd4a03697812f, type: 3}
   speed: {fileID: 3773586128583339834, guid: 237b4321ce6c23e84b3ddbdc16c9f484, type: 3}
+  player: {fileID: 1448989245}
 --- !u!1 &987755864
 GameObject:
   m_ObjectHideFlags: 0
@@ -4765,6 +4796,7 @@ MonoBehaviour:
   timeValue: 60
   timeText: {fileID: 1833868295}
   gameOver: {fileID: 643872308}
+  player: {fileID: 1448989241}
 --- !u!114 &1833868295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5119,7 +5151,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 0
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
