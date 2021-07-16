@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
 
-    public float timeValue = 90;
+    public float timeValue = 60;
     public Text timeText;
+    public GameObject gameOver;
 
     // Update is called once per frame
     void Update()
@@ -19,6 +20,7 @@ public class Timer : MonoBehaviour
         }
         else {
             timeValue = 0;
+            this.gameOver.SetActive(true);
             print("No time left");
         }
 
