@@ -22,5 +22,6 @@ public class Powerup : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 }
