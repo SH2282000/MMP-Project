@@ -5411,7 +5411,7 @@ MonoBehaviour:
   timeValue: 120
   timeText: {fileID: 1833868295}
   youWon: {fileID: 1935936091}
-  player: {fileID: 1448989241}
+  player: {fileID: 1448989245}
 --- !u!114 &1833868295
 MonoBehaviour:
   m_ObjectHideFlags: 0
