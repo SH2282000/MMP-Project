@@ -4793,7 +4793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec06bd8d91d444b388188e4f1372edc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeValue: 60
+  timeValue: 90
   timeText: {fileID: 1833868295}
   gameOver: {fileID: 643872308}
   player: {fileID: 1448989241}
