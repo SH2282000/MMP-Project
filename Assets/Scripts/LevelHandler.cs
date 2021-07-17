@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using Pathfinding;
 public class LevelHandler : MonoBehaviour
 {
     public GameObject[] spawnLocations, powerUpLocations;
@@ -51,6 +51,7 @@ public class LevelHandler : MonoBehaviour
                     enemy = Instantiate(bot);
                 enemy.levelHandler = this;
                 enemy.transform.position = new Vector3(location.transform.position.x + Random.Range(-2.1f, 2.1f), location.transform.position.y + Random.Range(-2.1f, 2.1f), location.transform.position.z);
+                enemy.transform.parent = this.transform.parent;
                 this.spawnedEnemies++;
                 this.enemies.Add(enemy);
             }

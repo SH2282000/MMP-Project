@@ -575,6 +575,7 @@ MonoBehaviour:
   enemyHitSound: {fileID: 3054075979255439122}
   levelHandler: {fileID: 0}
   path: {fileID: -7437529761118454354}
+  nodeDist: 17
 --- !u!50 &1517623073896657904
 Rigidbody2D:
   serializedVersion: 4
