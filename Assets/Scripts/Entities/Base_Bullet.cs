@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static Enemy;
 
 public class Base_Bullet : MonoBehaviour
 {
@@ -19,11 +16,11 @@ public class Base_Bullet : MonoBehaviour
         this.collision.velocity = this.motion;
     }
 
-    public void setMotion(Vector2 motion)
+    public void setMotion(Vector2 mot)
     {
-        motion = motion.normalized;
-        motion = new Vector2(motion.x * 100, motion.y * 100);
-        this.motion = motion;
+        mot = mot.normalized;
+        mot = new Vector2(mot.x * 100, mot.y * 100);
+        this.motion = mot;
     }
 
     void OnCollisionEnter2D(Collision2D collision)

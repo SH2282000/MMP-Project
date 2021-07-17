@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
@@ -24,7 +22,7 @@ public class PlayerTarget : MonoBehaviour
 
     void Update()
     {
-        if (data.health() <= 0 || target.health()<=0)
+        if (data.health() <= 0 || target.health() <= 0)
         {
             ai.canMove = false;
             return;

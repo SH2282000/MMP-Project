@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4691531231476855478}
+  hp: 2
   killCount: 0
   enemyDiesSound: {fileID: 6189182764554901896}
   enemyShootSound: {fileID: 4823906877819064224}

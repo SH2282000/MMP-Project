@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class LevelHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public GameObject[] spawnLocations, powerUpLocations;
 
     public Enemy bot, muddy;
@@ -19,17 +17,19 @@ public class LevelHandler : MonoBehaviour
 
     public Player player;
 
-    public void remove(Enemy enemy) {
+    public void remove(Enemy enemy)
+    {
         this.toRemove.Add(enemy);
     }
-    // Update is called once per frame
+
     void Update()
     {
-        foreach (Enemy e in this.toRemove) {
+        foreach (Enemy e in this.toRemove)
+        {
             this.enemies.Remove(e);
         }
         this.toRemove.Clear();
-        if(this.player.health() <= 0 || this.enemies.Count > 5)
+        if (this.player.health() <= 0 || this.enemies.Count > 5)
             return;
         if (this.delay > 0 && this.enemies.Count != 0)
         {
@@ -38,17 +38,17 @@ public class LevelHandler : MonoBehaviour
         else
         {
             int amount = Random.Range(1, 4);
-            
+
             for (int i = 0; i < amount; i++)
             {
                 int loc = Random.Range(0, this.spawnLocations.Length);
-                int type = Random.Range(0, 2);
+                int type = Random.Range(0, 7);
                 GameObject location = this.spawnLocations[loc];
                 Enemy enemy;
-                if (type == 0)
-                    enemy = Instantiate(bot);
-                else
+                if (type < 3)
                     enemy = Instantiate(muddy);
+                else
+                    enemy = Instantiate(bot);
                 enemy.levelHandler = this;
                 enemy.transform.position = new Vector3(location.transform.position.x + Random.Range(-2.1f, 2.1f), location.transform.position.y + Random.Range(-2.1f, 2.1f), location.transform.position.z);
                 this.spawnedEnemies++;
@@ -72,7 +72,7 @@ public class LevelHandler : MonoBehaviour
             else
                 powerup = Instantiate(speed);
             powerup.transform.position = new Vector3(location.transform.position.x, location.transform.position.y, location.transform.position.z);
-            this.powerUpDelay = Random.Range(10, 25);
+            this.powerUpDelay = Random.Range(7, 25);
         }
     }
 }

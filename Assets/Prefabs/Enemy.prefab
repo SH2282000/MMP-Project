@@ -548,7 +548,7 @@ Transform:
   m_GameObject: {fileID: 8833726877445244608}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 47}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 7120141432088507511}
   - {fileID: 4360147773372360665}
@@ -568,7 +568,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4673368684919503057}
-  killCount: 0
+  hp: 3
+  killCount: 1
   enemyDiesSound: {fileID: 8563158922209405750}
   enemyShootSound: {fileID: 90067984259329788}
   enemyHitSound: {fileID: 3054075979255439122}

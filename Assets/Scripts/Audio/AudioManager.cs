@@ -4,13 +4,13 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     private static string FirstPlay = "FirstPlay";
-    private static string MusicPref = "MusicPref";
-    private static string SoundEffectsPref = "SoundPref";
+    public static readonly string MusicPref = "MusicPref";
+    public static readonly string SoundEffectsPref = "SoundPref";
     private int firstPlayInt;
     public Slider musicSlider, soundEffectsSlider;
     private float musicFloat, soundEffectsFloat;
-    public AudioSource [] musicAudio;
-    public AudioSource [] soundEffectsAudio;
+    public AudioSource[] musicAudio;
+    public AudioSource[] soundEffectsAudio;
 
 
     // Start is called before the first frame updated
@@ -29,7 +29,8 @@ public class AudioManager : MonoBehaviour
             PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsFloat);
             PlayerPrefs.SetInt(FirstPlay, -1);
         }
-        else {
+        else
+        {
             // when player enters settings again - set slider to Pref-Value
             musicFloat = PlayerPrefs.GetFloat(MusicPref);
             musicSlider.value = musicFloat;
@@ -38,29 +39,30 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void SaveSoundSettings() {
+    public void SaveSoundSettings()
+    {
         PlayerPrefs.SetFloat(MusicPref, musicSlider.value);
         PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
     }
 
     void OnApplicationFocus(bool inFocus)
     {
-        if (!inFocus) {
+        if (!inFocus)
+        {
             SaveSoundSettings();
         }
     }
 
-    public void UpdateSound() {
-
-        for (int i = 0; i < musicAudio.Length; i++) {
+    public void UpdateSound()
+    {
+        for (int i = 0; i < musicAudio.Length; i++)
+        {
             musicAudio[i].volume = musicSlider.value;
         }
-
         for (int i = 0; i < soundEffectsAudio.Length; i++)
         {
             soundEffectsAudio[i].volume = soundEffectsSlider.value;
         }
-
     }
 
 }

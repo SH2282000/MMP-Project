@@ -48,7 +48,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motion: {x: 0, y: 0}
   livingTimeMax: 5
-  self: {fileID: 5365931951270809149}
 --- !u!50 &8214341856683735782
 Rigidbody2D:
   serializedVersion: 4

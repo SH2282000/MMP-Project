@@ -16,7 +16,8 @@ public class AudioSettings : MonoBehaviour
         ContinueSettings();
     }
 
-    private void ContinueSettings() {
+    private void ContinueSettings()
+    {
 
         musicFloat = PlayerPrefs.GetFloat(MusicPref);
         soundEffectsFloat = PlayerPrefs.GetFloat(SoundEffectsPref);
@@ -31,5 +32,15 @@ public class AudioSettings : MonoBehaviour
         {
             soundEffectsAudio[i].volume = soundEffectsFloat;
         }
+    }
+
+    public float getMusicVol()
+    {
+        return this.musicFloat;
+    }
+
+    public float getSoundVol()
+    {
+        return this.soundEffectsFloat;
     }
 }

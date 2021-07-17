@@ -4,9 +4,9 @@ using UnityEngine;
 
 public static class SoundManager
 {
-    public static void PlaySound() {
+    public static void PlaySound()
+    {
         GameObject soundGameObject = new GameObject("Sound");
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
-        
     }
 }

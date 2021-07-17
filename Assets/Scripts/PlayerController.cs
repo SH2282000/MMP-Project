@@ -1,17 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public Player player;
     public Camera cameraRef;
-
-    void Start()
-    {
-        
-    }
-
+    
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");

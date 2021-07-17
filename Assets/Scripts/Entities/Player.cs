@@ -7,7 +7,6 @@ public class Player : MonoBehaviour, Entity
     private bool faceRight = true;
     private int hp = 3;
     private float cooldown, invulnerableTime, speedTime, powerTime;
-    private bool attacking = false;
     public Base_Bullet base_bullet;
     //private AudioSource getshotAudio;
     public AudioSource playerHurtSound;
@@ -74,7 +73,6 @@ public class Player : MonoBehaviour, Entity
 
     public void attack()
     {
-        this.attacking = true;
         this.animator.SetTrigger("Attacking");
     }
 
@@ -117,6 +115,12 @@ public class Player : MonoBehaviour, Entity
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (this.hp <= 0)
+        {
+            this.collision.velocity = new Vector2(0, 0);
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+            return;
+        }
         if (collision.gameObject.tag == "Enemy" && collision.gameObject.GetComponent<Enemy>().health() > 0)
         {
             this.takeDamage();

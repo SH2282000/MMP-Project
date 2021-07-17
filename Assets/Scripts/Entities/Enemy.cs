@@ -7,18 +7,13 @@ public class Enemy : MonoBehaviour, Entity
     private Rigidbody2D collision;
     public Animator animator;
     private bool faceRight = true;
-    private int hp = 2;
+    public int hp = 2;
     private float cooldown;
-    private bool attacking = false;
     public float killCount = 0;
 
     public AudioSource enemyDiesSound;
     public AudioSource enemyShootSound;
     public AudioSource enemyHitSound;
-
-    private static string MusicPref = "MusicPref";
-    private static string SoundEffectsPref = "SoundPref";
-
     Points points;
 
     public LevelHandler levelHandler;
@@ -29,9 +24,9 @@ public class Enemy : MonoBehaviour, Entity
     {
         this.collision = GetComponent<Rigidbody2D>();
         this.points = GameObject.Find("PointsManager").GetComponent<Points>();
-        enemyDiesSound.volume = PlayerPrefs.GetFloat(SoundEffectsPref);
-        enemyShootSound.volume = PlayerPrefs.GetFloat(SoundEffectsPref);
-        enemyHitSound.volume = PlayerPrefs.GetFloat(SoundEffectsPref);
+        enemyDiesSound.volume = PlayerPrefs.GetFloat(AudioManager.SoundEffectsPref);
+        enemyShootSound.volume = PlayerPrefs.GetFloat(AudioManager.SoundEffectsPref);
+        enemyHitSound.volume = PlayerPrefs.GetFloat(AudioManager.SoundEffectsPref);
     }
 
     public int health()
@@ -41,7 +36,6 @@ public class Enemy : MonoBehaviour, Entity
 
     public void attack()
     {
-        this.attacking = true;
         this.animator.SetTrigger("Attacking");
         enemyShootSound.Play();
     }
