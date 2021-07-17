@@ -110,14 +110,17 @@ public class Player : MonoBehaviour, Entity
             Destroy(this.gameObject);
             this.gameOver.SetActive(true);
         }
-
+        if (this.hp <= 0)
+        {
+            this.collision.isKinematic = true;
+            this.collision.velocity = new Vector2(0, 0);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (this.hp <= 0)
         {
-            this.collision.velocity = new Vector2(0, 0);
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
             return;
         }

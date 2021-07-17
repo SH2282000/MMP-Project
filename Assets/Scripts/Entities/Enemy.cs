@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour, Entity
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (this.hp <= 0 || (collision.gameObject.tag == "Enemy" && collision.gameObject.GetComponent<Enemy>().health()<=0))
+        if (this.hp <= 0 || (collision.gameObject.tag == "Enemy" && collision.gameObject.GetComponent<Enemy>().health() <= 0))
         {
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
             return;
@@ -101,6 +101,11 @@ public class Enemy : MonoBehaviour, Entity
                 scale.x *= -1;
                 this.transform.localScale = scale;
             }
+        }
+        else
+        {
+            this.collision.isKinematic = true;
+            this.collision.velocity = new Vector2(0, 0);
         }
         if (anim.IsName("dead") && anim.normalizedTime > 1)
             Destroy(this.gameObject);
