@@ -16,6 +16,9 @@ public class Enemy : MonoBehaviour, Entity
     public AudioSource enemyShootSound;
     public AudioSource enemyHitSound;
 
+    private static string MusicPref = "MusicPref";
+    private static string SoundEffectsPref = "SoundPref";
+
     Points points;
 
     public LevelHandler levelHandler;
@@ -26,6 +29,9 @@ public class Enemy : MonoBehaviour, Entity
     {
         this.collision = GetComponent<Rigidbody2D>();
         this.points = GameObject.Find("PointsManager").GetComponent<Points>();
+        enemyDiesSound.volume = PlayerPrefs.GetFloat(SoundEffectsPref);
+        enemyShootSound.volume = PlayerPrefs.GetFloat(SoundEffectsPref);
+        enemyHitSound.volume = PlayerPrefs.GetFloat(SoundEffectsPref);
     }
 
     public int health()
