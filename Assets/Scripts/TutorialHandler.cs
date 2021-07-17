@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class TutorialHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
     
     private int cooldown;
 
@@ -14,7 +13,6 @@ public class TutorialHandler : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.anyKey && --cooldown <= 0) {

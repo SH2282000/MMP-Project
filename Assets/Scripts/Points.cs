@@ -13,22 +13,16 @@ public class Points : MonoBehaviour
     GameObject enemyObject;
     Enemy enemy;
 
-    void Start()
+    public void addPoints(float kill)
     {
-        enemyObject = GameObject.Find("Bot");
-        enemy = enemyObject.GetComponent<Enemy>();
-        pointStatus = enemy.killCount;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        pointStatus = enemy.killCount * killFactor;
+        pointStatus += kill * killFactor;
         DisplayPoints(pointStatus);
     }
 
-    void DisplayPoints(float currPoints) {
-        if (currPoints < 0) {
+    void DisplayPoints(float currPoints)
+    {
+        if (currPoints < 0)
+        {
             currPoints = 0;
         }
 

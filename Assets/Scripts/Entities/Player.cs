@@ -1,10 +1,7 @@
 using System;
-using System.Threading;
 using UnityEngine;
 public class Player : MonoBehaviour, Entity
 {
-    //List items;
-
     private Rigidbody2D collision;
     public Animator animator;
     private bool faceRight = true;
@@ -19,42 +16,52 @@ public class Player : MonoBehaviour, Entity
     public GameObject[] hearts;
     public GameObject gameOver, speedObj, powerObj;
 
-    void Awake() {
+    void Awake()
+    {
         this.collision = GetComponent<Rigidbody2D>();
         //this.getshotAudio = GetComponent<AudioSource>();
     }
 
-    public int health() {
+    public int health()
+    {
         return this.hp;
     }
 
-    public void move(float horizontal, float vertical) {
-        if(this.health() <= 0)
+    public void move(float horizontal, float vertical)
+    {
+        if (this.health() <= 0)
             return;
         horizontal *= 100f;
         vertical *= 100f;
-        if(this.speedTime > 0) {
+        if (this.speedTime > 0)
+        {
             horizontal *= 1.5f;
             vertical *= 1.5f;
         }
         this.animator.SetBool("Moving", horizontal != 0 || vertical != 0);
         this.collision.velocity = new Vector2(horizontal, vertical);
-        if(horizontal > 0 && !this.faceRight) {
+        if (horizontal > 0 && !this.faceRight)
+        {
             this.faceRight = true;
             Vector3 scale = this.transform.localScale;
             scale.x *= -1;
             this.transform.localScale = scale;
-        } else if(horizontal < 0 && this.faceRight) {
+        }
+        else if (horizontal < 0 && this.faceRight)
+        {
             this.faceRight = false;
             Vector3 scale = this.transform.localScale;
             scale.x *= -1;
             this.transform.localScale = scale;
         }
-        //Debug.Log(this.collision.velocity);
     }
 
-    public void shoot(Vector3 dir) {
-        if(this.cooldown <= 0) {
+    public void shoot(Vector3 dir)
+    {
+        if (this.health() <= 0)
+            return;
+        if (this.cooldown <= 0)
+        {
             Base_Bullet bullet = Instantiate(base_bullet);
             Vector2 dir2 = new Vector2(dir.x, dir.y);
             bullet.setMotion(dir2);
@@ -71,33 +78,37 @@ public class Player : MonoBehaviour, Entity
         this.animator.SetTrigger("Attacking");
     }
 
-    public void takeDamage() {
-        if(this.hp <= 0 || this.invulnerableTime > 0)
+    public void takeDamage()
+    {
+        if (this.hp <= 0 || this.invulnerableTime > 0)
             return;
         Debug.Log("Damage player");
         this.hp--;
         this.hearts[this.hp].SetActive(false);
         this.invulnerableTime = 1;
         playerHurtSound.Play();
-        if(this.hp <= 0) {
+        if (this.hp <= 0)
+        {
             this.animator.SetBool("Alive", false);
             playerDiesSound.Play();
         }
     }
 
-    void Update() {
-        this.cooldown -= Time.deltaTime;  
-        this.invulnerableTime -= Time.deltaTime;  
+    void Update()
+    {
+        this.cooldown -= Time.deltaTime;
+        this.invulnerableTime -= Time.deltaTime;
         Boolean hasSpeed = this.speedTime > 0;
         Boolean hasPower = this.powerTime > 0;
-        this.speedTime -= Time.deltaTime;  
-        this.powerTime -= Time.deltaTime;  
-        if(this.speedTime <=0 && hasSpeed)
+        this.speedTime -= Time.deltaTime;
+        this.powerTime -= Time.deltaTime;
+        if (this.speedTime <= 0 && hasSpeed)
             this.speedObj.SetActive(false);
-        if(this.powerTime <=0 && hasPower)
+        if (this.powerTime <= 0 && hasPower)
             this.powerObj.SetActive(false);
         AnimatorStateInfo anim = this.animator.GetCurrentAnimatorStateInfo(0);
-        if(anim.IsName("dead") && anim.normalizedTime > 1) {
+        if (anim.IsName("dead") && anim.normalizedTime > 1)
+        {
             Destroy(this.gameObject);
             this.gameOver.SetActive(true);
         }
@@ -106,7 +117,7 @@ public class Player : MonoBehaviour, Entity
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && collision.gameObject.GetComponent<Enemy>().health() > 0)
         {
             this.takeDamage();
         }
