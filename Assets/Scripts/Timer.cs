@@ -7,7 +7,9 @@ public class Timer : MonoBehaviour
 
     public float timeValue = 90;
     public Text timeText;
-    public GameObject youWon, player;
+    public GameObject youWon;
+
+    public Player player;
 
     // blink comps
     private Color initColor;
@@ -21,7 +23,8 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (this.player.health() <= 0)
+            return;
         // counts seconds down
         if (timeValue > 0)
         {
@@ -31,7 +34,7 @@ public class Timer : MonoBehaviour
         {
             timeValue = 0;
             this.youWon.SetActive(true);
-            Destroy(this.player);
+            Destroy(this.player.gameObject);
         }
 
         DisplayTime(timeValue);
@@ -56,14 +59,17 @@ public class Timer : MonoBehaviour
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    IEnumerator Blink() {
-        while (true) {
+    IEnumerator Blink()
+    {
+        while (true)
+        {
             if (!transparentText)
             {
                 timeText.color = new Color(initColor.r, initColor.g, initColor.b, 0);
                 transparentText = true;
             }
-            else {
+            else
+            {
                 timeText.color = new Color(initColor.r, initColor.g, initColor.b, 1);
                 transparentText = false;
             }
