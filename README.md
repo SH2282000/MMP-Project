@@ -20,6 +20,9 @@ https://user-images.githubusercontent.com/16389789/126069571-36f6d5d5-5ca9-4ee4-
  - Shannah Mahmoud
  - Nassim Chamseddine
 
+[![](https://contrib.rocks/image?repo=SH2282000/MMP-Project)](https://github.com/SH2282000/MMP-Project/graphs/contributors)
+
+
 ### Repartition of the Workload
 <table>
   <tbody>
