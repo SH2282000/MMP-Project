@@ -173,9 +173,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 105
-        width: 35
-        height: 35
+        y: 210
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +193,10 @@ TextureImporter:
       name: bot_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 105
-        width: 35
-        height: 35
+        x: 70
+        y: 210
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,10 +214,10 @@ TextureImporter:
       name: bot_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 70
-        y: 105
-        width: 35
-        height: 35
+        x: 140
+        y: 210
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,10 +235,10 @@ TextureImporter:
       name: bot_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 105
-        y: 105
-        width: 35
-        height: 35
+        x: 210
+        y: 210
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,10 +256,10 @@ TextureImporter:
       name: bot_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 140
-        y: 105
-        width: 35
-        height: 35
+        x: 280
+        y: 210
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,10 +277,10 @@ TextureImporter:
       name: bot_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 175
-        y: 105
-        width: 35
-        height: 35
+        x: 350
+        y: 210
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,9 +299,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 70
-        width: 35
-        height: 35
+        y: 140
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,10 +319,10 @@ TextureImporter:
       name: bot_spritesheet_7
       rect:
         serializedVersion: 2
-        x: 35
-        y: 70
-        width: 35
-        height: 35
+        x: 70
+        y: 140
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -340,10 +340,10 @@ TextureImporter:
       name: bot_spritesheet_8
       rect:
         serializedVersion: 2
-        x: 70
-        y: 70
-        width: 35
-        height: 35
+        x: 140
+        y: 140
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -361,10 +361,10 @@ TextureImporter:
       name: bot_spritesheet_9
       rect:
         serializedVersion: 2
-        x: 105
-        y: 70
-        width: 35
-        height: 35
+        x: 210
+        y: 140
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -382,10 +382,10 @@ TextureImporter:
       name: bot_spritesheet_10
       rect:
         serializedVersion: 2
-        x: 140
-        y: 70
-        width: 35
-        height: 35
+        x: 280
+        y: 140
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -404,9 +404,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 35
-        width: 35
-        height: 35
+        y: 70
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -424,10 +424,10 @@ TextureImporter:
       name: bot_spritesheet_12
       rect:
         serializedVersion: 2
-        x: 35
-        y: 35
-        width: 35
-        height: 35
+        x: 70
+        y: 70
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -445,10 +445,10 @@ TextureImporter:
       name: bot_spritesheet_13
       rect:
         serializedVersion: 2
-        x: 70
-        y: 35
-        width: 35
-        height: 35
+        x: 140
+        y: 70
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -466,10 +466,10 @@ TextureImporter:
       name: bot_spritesheet_14
       rect:
         serializedVersion: 2
-        x: 105
-        y: 35
-        width: 35
-        height: 35
+        x: 210
+        y: 70
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -487,10 +487,10 @@ TextureImporter:
       name: bot_spritesheet_15
       rect:
         serializedVersion: 2
-        x: 140
-        y: 35
-        width: 35
-        height: 35
+        x: 280
+        y: 70
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -508,10 +508,10 @@ TextureImporter:
       name: bot_spritesheet_16
       rect:
         serializedVersion: 2
-        x: 175
-        y: 35
-        width: 35
-        height: 35
+        x: 350
+        y: 70
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -529,10 +529,10 @@ TextureImporter:
       name: bot_spritesheet_17
       rect:
         serializedVersion: 2
-        x: 210
-        y: 35
-        width: 35
-        height: 35
+        x: 420
+        y: 70
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -550,10 +550,10 @@ TextureImporter:
       name: bot_spritesheet_18
       rect:
         serializedVersion: 2
-        x: 245
-        y: 35
-        width: 35
-        height: 35
+        x: 490
+        y: 70
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -573,8 +573,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 35
-        height: 35
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -592,10 +592,10 @@ TextureImporter:
       name: bot_spritesheet_20
       rect:
         serializedVersion: 2
-        x: 35
+        x: 70
         y: 0
-        width: 35
-        height: 35
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -613,10 +613,10 @@ TextureImporter:
       name: bot_spritesheet_21
       rect:
         serializedVersion: 2
-        x: 70
+        x: 140
         y: 0
-        width: 35
-        height: 35
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -634,10 +634,10 @@ TextureImporter:
       name: bot_spritesheet_22
       rect:
         serializedVersion: 2
-        x: 105
+        x: 210
         y: 0
-        width: 35
-        height: 35
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -655,10 +655,10 @@ TextureImporter:
       name: bot_spritesheet_23
       rect:
         serializedVersion: 2
-        x: 140
+        x: 280
         y: 0
-        width: 35
-        height: 35
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -676,10 +676,10 @@ TextureImporter:
       name: bot_spritesheet_24
       rect:
         serializedVersion: 2
-        x: 175
+        x: 350
         y: 0
-        width: 35
-        height: 35
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -697,10 +697,10 @@ TextureImporter:
       name: bot_spritesheet_25
       rect:
         serializedVersion: 2
-        x: 210
+        x: 420
         y: 0
-        width: 35
-        height: 35
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
