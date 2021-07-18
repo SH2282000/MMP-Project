@@ -22,7 +22,7 @@ public class PlayerTarget : MonoBehaviour
 
     void Update()
     {
-        if (data.health() <= 0 || target.health() <= 0)
+        if (data.health() <= 0 || target == null || target.health() <= 0)
         {
             ai.canMove = false;
             return;

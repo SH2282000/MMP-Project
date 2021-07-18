@@ -30,7 +30,7 @@ public class Timer : MonoBehaviour
         {
             timeValue -= Time.deltaTime;
         }
-        else
+        else if(!this.youWon.activeSelf)
         {
             timeValue = 0;
             this.youWon.SetActive(true);

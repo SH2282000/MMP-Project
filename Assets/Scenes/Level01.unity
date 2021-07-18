@@ -1363,6 +1363,7 @@ GameObject:
   - component: {fileID: 623383013}
   - component: {fileID: 623383016}
   - component: {fileID: 623383015}
+  - component: {fileID: 623383014}
   m_Layer: 5
   m_Name: Highscore
   m_TagString: Untagged
@@ -1389,6 +1390,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -2.2588882}
   m_SizeDelta: {x: 237.0065, y: 53.102}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &623383014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623383012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a92c8e9b346c58fca8a63f1f0b0ed3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highscoreText: {fileID: 623383015}
+  pointsSrc: {fileID: 566865661}
 --- !u!114 &623383015
 MonoBehaviour:
   m_ObjectHideFlags: 0

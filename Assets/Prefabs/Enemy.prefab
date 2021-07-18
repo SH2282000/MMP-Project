@@ -575,7 +575,6 @@ MonoBehaviour:
   enemyHitSound: {fileID: 3054075979255439122}
   levelHandler: {fileID: 0}
   path: {fileID: -7437529761118454354}
-  nodeDist: 17
 --- !u!50 &1517623073896657904
 Rigidbody2D:
   serializedVersion: 4
@@ -689,3 +688,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ceb41f3a99922aaaaecbdbc409140a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 4987394426515883236}
