@@ -11,7 +11,7 @@ public class AudioSettings : MonoBehaviour
     public AudioSource[] soundEffectsAudio;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         ContinueSettings();
     }
