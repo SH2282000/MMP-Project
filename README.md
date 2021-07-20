@@ -13,7 +13,11 @@ To build the project go into **file** > **Build and Run** and select the destina
 ## Preview 
 Here's a **preview video** of the game running on a mac.
 
-https://user-images.githubusercontent.com/16389789/126069571-36f6d5d5-5ca9-4ee4-992e-4657d695f221.mp4
+<p align="center">
+ <a href="https://www.youtube.com/watch?v=ayeMEYqFKtY">
+  <img width="460" height="300" src="https://img.youtube.com/vi/ayeMEYqFKtY/0.jpg">
+ </a>
+</p>
 
 ## Contributions
 ### GROUP "Soap Boy" (Contributors)
